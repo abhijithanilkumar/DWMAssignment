@@ -2,10 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import svm, datasets
 
+# Importing the iris dataset
 iris = datasets.load_iris()
 X = iris.data[:, :2]
 y = iris.target
 
+# Creating an instance of SVM
 c = 1.0 # SVM regularization parameter
 #svc = svm.SVC(kernel='linear', C=1, gamma=0.5).fit(X,y)
 #svc = svm.SVC(kernel='rbf', C=1, gamma=0.5).fit(X,y)
@@ -14,6 +16,7 @@ c = 1.0 # SVM regularization parameter
 #svc = svm.SVC(kernel='rbf', C=100, gamma=0.5).fit(X, y)
 svc = svm.SVC(kernel='rbf', C=1000, gamma=0.5).fit(X, y)
 
+# Creating a mesh to plot results
 x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
 y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
 h = (x_max / x_min)/100
